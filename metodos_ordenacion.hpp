@@ -3,19 +3,20 @@
 template <class Key>
 class SortMethod {
  public:
+  SortMethod(unsigned size, std::vector<Key> secuencia, bool traza);
   virtual void Sort() = 0;
 
  protected:
   unsigned size_;
   std::vector<Key> secuencia_;
+  bool traza_;
 };
 
 // ===== InsertionSort =====
 template <class Key>
 class InsertionSort : public SortMethod<Key> {
  public:
-  InsertionSort() = default;
-  InsertionSort(unsigned size, std::vector<Key> secuencia);
+  InsertionSort(unsigned size, std::vector<Key> secuencia, bool traza = false) : SortMethod<Key>(size, secuencia, traza) {}
   void Sort();
 };
 
@@ -23,7 +24,7 @@ class InsertionSort : public SortMethod<Key> {
 template <class Key>
 class MergeSort : public SortMethod<Key> {
  public:
-  MergeSort(unsigned size, std::vector<Key> secuencia);
+  MergeSort(unsigned size, std::vector<Key> secuencia, bool traza = false) : SortMethod<Key>(size, secuencia, traza) {}
   void Sort();
 };
 
@@ -31,7 +32,7 @@ class MergeSort : public SortMethod<Key> {
 template <class Key>
 class ShellSort : public SortMethod<Key> {
  public:
-  ShellSort(unsigned size, std::vector<Key> secuencia);
+  ShellSort(unsigned size, std::vector<Key> secuencia, bool traza = false) : SortMethod<Key>(size, secuencia, traza) {}
   void Sort();
 };
 
@@ -39,7 +40,7 @@ class ShellSort : public SortMethod<Key> {
 template <class Key>
 class HeapSort : public SortMethod<Key> {
  public:
-  HeapSort(unsigned size, std::vector<Key> secuencia);
+  HeapSort(unsigned size, std::vector<Key> secuencia, bool traza = false) : SortMethod<Key>(size, secuencia, traza) {}
   void Sort();
 };
 
@@ -47,11 +48,19 @@ class HeapSort : public SortMethod<Key> {
 template <class Key>
 class RadixSort : public SortMethod<Key> {
  public:
-  RadixSort(unsigned size, std::vector<Key> secuencia);
+  RadixSort(unsigned size, std::vector<Key> secuencia, bool traza = false) : SortMethod<Key>(size, secuencia, traza) {}
   void Sort();
 };
 
 // ===== CONSTRUCTORES =====
+template <class Key>
+SortMethod<key>::SortMethod(unsigned size, std::vector<Key> secuencia, bool traza) {
+  this->size_ = size;
+  this->secuencia_ = secuencia;
+  this->traza_ = traza;
+}
+
+/*
 template <class Key>
 InsertionSort<Key>::InsertionSort(unsigned size, std::vector<Key> secuencia) {
   this->size_ = size;
@@ -81,7 +90,7 @@ RadixSort<Key>::RadixSort(unsigned size, std::vector<Key> secuencia) {
   this->size_ = size;
   this->secuencia_ = secuencia;
 }
-
+*/
 // ===== MÉTODOS DE ORDENACIÓN =====
 
 // Método Sort() de la clase InsertionSort
