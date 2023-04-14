@@ -1,10 +1,5 @@
 #include "metodos_ordenacion.hpp"
-/*
-Aunque no lo pidan en esta práctica, implementa todos los algortimos de
-ordenacion dados en clase para estudiar para el examen y ver las trazas y el
-código de cada uno
-**Hacer en un archivo aparte**
-*/
+
 int main() {
   int opcion_algoritmo, opcion_valores, valor_secuencia;
   unsigned size;
