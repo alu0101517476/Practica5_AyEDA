@@ -1,4 +1,5 @@
 #include "metodos_ordenacion.hpp"
+#include "algoritmos.hpp"
 
 int main() {
   int opcion_algoritmo, opcion_valores, valor_secuencia;
@@ -30,7 +31,7 @@ int main() {
       break;
     }
     default:
-      std::cout << "La opción " << opcion_valores << " es incorrecta "<<  << std::endl;
+      std::cout << "La opción " << opcion_valores << " es incorrecta "<< std::endl;
       exit(1);
       break;
   }
@@ -51,17 +52,21 @@ int main() {
 
     case 3: 
       Metodo = new ShellSort<long>{size, secuencia, traza};
+      Metodo->Sort();
       break;
-    
+
     case 4:
       Metodo = new HeapSort<long>{size, secuencia, traza};
+      Metodo->Sort();
       break;
     
     case 5:
       Metodo = new RadixSort<long>{size, secuencia, traza};
+      Metodo->Sort();
       break;
+
     default:
-      std::cout << "La opción " << opcion_valores << " es incorrecta "<<  << std::endl;
+      std::cout << "La opción " << opcion_valores << " es incorrecta "<< std::endl;
       exit(1);
       break;
   }
