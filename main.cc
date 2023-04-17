@@ -24,9 +24,9 @@ int main() {
       break;
     }
     case 2: {
-      srand(1000);
+      srand(time(NULL));
       for (int i{0}; i < size; ++i) {
-        secuencia.emplace_back((rand() % 9999));
+        secuencia.emplace_back((1000 + rand() % (9999 + 1 - 1000)));
       }
       break;
     }
