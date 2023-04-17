@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
 #include "algoritmos.hpp"
 
 template <class Key>
